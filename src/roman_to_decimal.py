@@ -14,6 +14,9 @@ def roman_to_decimal(roman):
 
     for char in reversed(roman.upper()):
         value = roman_values.get(char, 0)
+        if value == 0:
+            raise ValueError("Invalid Roman numerals")
+        # print (f"char = {char}")
         if value < prev_value:
             total -= value
         else:
